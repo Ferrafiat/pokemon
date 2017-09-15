@@ -40,7 +40,8 @@ $WILDFLY_HOME/bin/standalone.sh -c standalone-load-balancer.xml -b $MY_IP -bpriv
 
 #### Les workers
 
-On utilise `standalone-ha.xml`, un profil qui a le composant modcluster inclus. Ce fichier est donné lors du lancement du serveur, qui se fait via le script suivant :
+On utilise `standalone-ha.xml`, un profil qui a le composant modcluster inclus. Ce fichier est donné lors du lancement
+du serveur, qui se fait via le script suivant :
 
 ```bash
 #!/bin/bash
