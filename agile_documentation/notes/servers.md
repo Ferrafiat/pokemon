@@ -1,5 +1,20 @@
 # Notes serveurs
 
+<!-- TOC -->
+
+- [Notes serveurs](#notes-serveurs)
+    - [Mise en place du load balancer](#mise-en-place-du-load-balancer)
+        - [Tentative 1 - cluster](#tentative-1---cluster)
+        - [Tentative 2 - un serveur par machine](#tentative-2---un-serveur-par-machine)
+            - [Le load-balancer](#le-load-balancer)
+            - [Les workers](#les-workers)
+        - [Tentative 3 - Un load-balancer avec des clusters](#tentative-3---un-load-balancer-avec-des-clusters)
+    - [Faire communiquer les EJBs avec la base de données](#faire-communiquer-les-ejbs-avec-la-base-de-données)
+        - [Tentative 1 - Hibernate uniquement](#tentative-1---hibernate-uniquement)
+        - [Tentative 2 - ajouter la BD en tant que datasource et utiliser le jndi](#tentative-2---ajouter-la-bd-en-tant-que-datasource-et-utiliser-le-jndi)
+
+<!-- /TOC -->
+
 ## Mise en place du load balancer
 
 ### Tentative 1 - cluster
