@@ -1,14 +1,12 @@
 package API.resources;
 
-import database.entities.LanguagesEntity;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 @Path("languages")
 public class LanguagesResource extends javax.ws.rs.core.Application {
@@ -17,7 +15,8 @@ public class LanguagesResource extends javax.ws.rs.core.Application {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<LanguagesEntity> getLanguages() {
-        return entityManager.createQuery("SELECT name FROM LanguagesEntity").getResultList();
+    public Response getLanguages() {
+        String query = "SELECT l FROM LanguagesEntity l";
+        return Response.status(Response.Status.OK).entity(entityManager.createQuery(query).getResultList()).build();
     }
 }
