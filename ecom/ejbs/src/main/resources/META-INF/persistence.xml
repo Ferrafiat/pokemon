@@ -7,6 +7,7 @@
 
     <persistence-unit name="pokemon-psql-database" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/PokeSQLDB</jta-data-source>
+        <class>database.entities.LanguagesEntity</class>
         <properties>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
