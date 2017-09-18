@@ -8686,56 +8686,61 @@ button.close {
     display: none !important;
   }
 }
-/* line 3, ../sass/main.scss */
+/* line 4, ../sass/main.scss */
 body {
   background: rgba(0, 0, 0, 0.1);
 }
 
-/* line 6, ../sass/main.scss */
+/* line 7, ../sass/main.scss */
 .container {
   background: #fff;
 }
 
-/* line 9, ../sass/main.scss */
+/* line 10, ../sass/main.scss */
 .center {
   width: 100%;
   text-align: center;
 }
 
-/* line 13, ../sass/main.scss */
+/* line 14, ../sass/main.scss */
 .button {
   cursor: pointer;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 17, ../sass/main.scss */
 .pt25 {
   padding-top: 25px;
 }
 
-/* line 19, ../sass/main.scss */
+/* line 20, ../sass/main.scss */
 .unstyled {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 24, ../sass/main.scss */
+/* line 25, ../sass/main.scss */
 .w100 {
   width: 100%;
 }
 
-/* line 29, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
+a {
+  color: #1D3B73;
+}
+
+/* line 32, ../sass/main.scss */
 .footer {
   width: 100%;
   background: #000;
   padding-bottom: 50px;
   color: #fff;
 }
-/* line 34, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 .footer a {
   color: #fff;
 }
-/* line 37, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 .footer .container {
   background: transparent;
 }
