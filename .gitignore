@@ -13,3 +13,7 @@
 
 # Sass related in proto
 proto/.sass-cache/*
+
+# Related in proto2
+
+proto-app/node_modules/*
