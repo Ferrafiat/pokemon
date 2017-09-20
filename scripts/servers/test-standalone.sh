@@ -13,6 +13,7 @@ WILDFLY_CONFIG=standalone.xml
 # Clean up
 pgrep -d " " -f "wildfly" | xargs kill;
 
+rm -r pokemon
 # Clone the project if needed
 if [ ! -d $PROJECT_HOME ]; then
   git clone $PROJECT_URL $PROJECT_HOME

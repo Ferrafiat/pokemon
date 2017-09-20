@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>database.entities.ArticlesStatesEntity</class>
+        <class>database.entities.CartsEntity</class>
+        <class>database.entities.CartsStatesEntity</class>
+        <class>database.entities.FeedbackEntity</class>
+        <class>database.entities.ItemCategoriesEntity</class>
+        <class>database.entities.ItemsArticlesEntity</class>
+        <class>database.entities.ItemsArticlesCartsEntity</class>
+        <class>database.entities.ItemsCategoriesTranslationsEntity</class>
+        <class>database.entities.ItemsDescriptionsEntity</class>
+        <class>database.entities.ItemsDescriptionsTranslationsEntity</class>
+        <class>database.entities.ItemsNamesEntity</class>
+        <class>database.entities.ItemsNamesTranslationsEntity</class>
+        <class>database.entities.LanguagesEntity</class>
+        <class>database.entities.LotsArticlesEntity</class>
+        <class>database.entities.LotsCartsEntity</class>
+        <class>database.entities.PokemonsEntity</class>
+        <class>database.entities.PokemonsAcceptedGendersEntity</class>
+        <class>database.entities.PokemonsArticlesEntity</class>
+        <class>database.entities.PokemonsColorsEntity</class>
+        <class>database.entities.PokemonsColorsTranslationsEntity</class>
+        <class>database.entities.PokemonsDescriptionsEntity</class>
+        <class>database.entities.PokemonsDescriptionsTranslationsEntity</class>
+        <class>database.entities.PokemonsGendersEntity</class>
+        <class>database.entities.PokemonsGendersTranslationsEntity</class>
+        <class>database.entities.PokemonsHabitatsEntity</class>
+        <class>database.entities.PokemonsHabitatsTranslationsEntity</class>
+        <class>database.entities.PokemonsShapesEntity</class>
+        <class>database.entities.PokemonsShapesTranslationsEntity</class>
+        <class>database.entities.PokemonsSpeciesEntity</class>
+        <class>database.entities.PokemonsSpeciesTranslationsEntity</class>
+        <class>database.entities.RolesEntity</class>
+        <class>database.entities.RolesTranslationsEntity</class>
+        <class>database.entities.SuggestionsEntity</class>
+        <class>database.entities.TradesEntity</class>
+        <class>database.entities.UsersEntity</class>
+        <class>database.entities.UsersRolesEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://152.77.78.52:5432/pokemondb"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
