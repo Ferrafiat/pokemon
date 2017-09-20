@@ -1,15 +1,16 @@
 package database.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Table(name = "roles", schema = "public", catalog = "pokemondb")
-public class RolesEntity {
+public class RolesEntity implements Serializable {
     private int id;
     private String name;
-    private Collection<RolesTranslationsEntity> rolesTranslationsById;
-    private Collection<UsersRolesEntity> usersRolesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -51,21 +52,4 @@ public class RolesEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "rolesByRoleId")
-    public Collection<RolesTranslationsEntity> getRolesTranslationsById() {
-        return rolesTranslationsById;
-    }
-
-    public void setRolesTranslationsById(Collection<RolesTranslationsEntity> rolesTranslationsById) {
-        this.rolesTranslationsById = rolesTranslationsById;
-    }
-
-    @OneToMany(mappedBy = "rolesByRoleId")
-    public Collection<UsersRolesEntity> getUsersRolesById() {
-        return usersRolesById;
-    }
-
-    public void setUsersRolesById(Collection<UsersRolesEntity> usersRolesById) {
-        this.usersRolesById = usersRolesById;
-    }
 }

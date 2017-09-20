@@ -1,14 +1,15 @@
 package database.entities;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "carts", schema = "public", catalog = "pokemondb")
-public class CartsEntity {
+public class CartsEntity implements Serializable {
     private int id;
-    private Collection<ItemsArticlesCartsEntity> itemsArticlesCartsById;
-    private Collection<PokemonsArticlesEntity> pokemonsArticlesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -35,23 +36,5 @@ public class CartsEntity {
     @Override
     public int hashCode() {
         return id;
-    }
-
-    @OneToMany(mappedBy = "cartsByIdCart")
-    public Collection<ItemsArticlesCartsEntity> getItemsArticlesCartsById() {
-        return itemsArticlesCartsById;
-    }
-
-    public void setItemsArticlesCartsById(Collection<ItemsArticlesCartsEntity> itemsArticlesCartsById) {
-        this.itemsArticlesCartsById = itemsArticlesCartsById;
-    }
-
-    @OneToMany(mappedBy = "cartsByCartId")
-    public Collection<PokemonsArticlesEntity> getPokemonsArticlesById() {
-        return pokemonsArticlesById;
-    }
-
-    public void setPokemonsArticlesById(Collection<PokemonsArticlesEntity> pokemonsArticlesById) {
-        this.pokemonsArticlesById = pokemonsArticlesById;
     }
 }

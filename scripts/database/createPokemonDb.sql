@@ -214,9 +214,10 @@ CREATE TABLE users
   firstname VARCHAR(20),
   birthday date,
   gender VARCHAR(6) CHECK (gender = 'Male' OR gender = 'Female'),
-  email VARCHAR(20),
+  email VARCHAR(50),
   password chkpass,
-  lastname VARCHAR(30)
+  lastname VARCHAR(30),
+  handle VARCHAR (30)
 );
 
 CREATE TABLE users_roles

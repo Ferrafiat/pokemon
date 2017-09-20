@@ -1,27 +1,38 @@
 package database.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
 @Table(name = "users", schema = "public", catalog = "pokemondb")
-public class UsersEntity {
+public class UsersEntity implements Serializable {
     private int id;
     private String firstname;
-    private Date birthday;
+    private LocalDate birthday;
     private String gender;
     private String email;
-    private Serializable password;
+    private String password;
     private String lastname;
-    private Collection<FeedbackEntity> feedbacksWritten;
-    private Collection<FeedbackEntity> feedbacks;
-    private Collection<ItemsArticlesEntity> itemsArticlesById;
-    private Collection<PokemonsArticlesEntity> pokemonsArticlesById;
-    private Collection<TradesEntity> tradesSuggest;
-    private Collection<TradesEntity> tradesOffer;
-    private Collection<UsersRolesEntity> usersRolesById;
+    private String handle;
+    private Collection<RolesEntity> Roles;
+
+    public UsersEntity() {
+    }
+
+    public UsersEntity(String firstname, LocalDate birthday, String gender, String email, String password, String lastname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+        this.lastname = lastname;
+    }
 
     @Id
     @Column(name = "id", nullable = false)
@@ -44,12 +55,22 @@ public class UsersEntity {
     }
 
     @Basic
+    @Column(name = "handle", nullable = true, length = 30)
+    public String getHandle() {
+        return handle;
+    }
+
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
+    @Basic
     @Column(name = "birthday", nullable = true)
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -75,11 +96,11 @@ public class UsersEntity {
 
     @Basic
     @Column(name = "password", nullable = true)
-    public Serializable getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Serializable password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -123,66 +144,20 @@ public class UsersEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "usersByAuthorId")
-    public Collection<FeedbackEntity> getFeedbacksWritten() {
-        return feedbacksWritten;
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    @JsonManagedReference
+    public Collection<RolesEntity> getRoles() {
+        return Roles;
     }
 
-    public void setFeedbacksWritten(Collection<FeedbackEntity> feedbacksById) {
-        this.feedbacksWritten = feedbacksById;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<FeedbackEntity> getFeedbacks() {
-        return feedbacks;
-    }
-
-    public void setFeedbacks(Collection<FeedbackEntity> feedbacksById_0) {
-        this.feedbacks = feedbacksById_0;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<ItemsArticlesEntity> getItemsArticlesById() {
-        return itemsArticlesById;
-    }
-
-    public void setItemsArticlesById(Collection<ItemsArticlesEntity> itemsArticlesById) {
-        this.itemsArticlesById = itemsArticlesById;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<PokemonsArticlesEntity> getPokemonsArticlesById() {
-        return pokemonsArticlesById;
-    }
-
-    public void setPokemonsArticlesById(Collection<PokemonsArticlesEntity> pokemonsArticlesById) {
-        this.pokemonsArticlesById = pokemonsArticlesById;
-    }
-
-    @OneToMany(mappedBy = "usersByFirstUserId")
-    public Collection<TradesEntity> getTradesSuggest() {
-        return tradesSuggest;
-    }
-
-    public void setTradesSuggest(Collection<TradesEntity> tradesById) {
-        this.tradesSuggest = tradesById;
-    }
-
-    @OneToMany(mappedBy = "usersBySecondUserId")
-    public Collection<TradesEntity> getTradesOffer() {
-        return tradesOffer;
-    }
-
-    public void setTradesOffer(Collection<TradesEntity> tradesById_0) {
-        this.tradesOffer = tradesById_0;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<UsersRolesEntity> getUsersRolesById() {
-        return usersRolesById;
-    }
-
-    public void setUsersRolesById(Collection<UsersRolesEntity> usersRolesById) {
-        this.usersRolesById = usersRolesById;
+    public void setRoles(Collection<RolesEntity> roles) {
+        this.Roles = roles;
     }
 }
