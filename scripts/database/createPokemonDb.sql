@@ -37,6 +37,13 @@ DROP TABLE items_articles CASCADE;
 DROP TABLE pokemons_articles CASCADE;
 DROP TABLE articles_states CASCADE;
 DROP TABLE items_articles_carts CASCADE;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+DROP TABLE lots CASCADE;
+=======
+>>>>>>> XAdd cart
+>>>>>>> 5798e1ee90e39ffec6279061cf2f9bbe0124823a
 ------------------------------------------------------------------------------------------------------------------------
 --- EXTENSION
 ------------------------------------------------------------------------------------------------------------------------
@@ -141,7 +148,7 @@ CREATE TABLE pokemons
   habitat_id INT  REFERENCES pokemons_habitats (id),
   color_id INT  REFERENCES pokemons_colors (id),
   shape_id INT  REFERENCES pokemons_shapes (id),
-  description INT  REFERENCES pokemons_descriptions (id)
+  description_id INT  REFERENCES pokemons_descriptions (id)
 );
 
 CREATE TABLE pokemons_accepted_genders
@@ -307,10 +314,31 @@ CREATE TABLE suggestions
 CREATE TABLE trades
 (
   first_user_id INT NOT NULL REFERENCES users (id),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  first_pokemon_id INT NOT NULL REFERENCES pokemons_articles (id),
+  second_user_id INT NOT NULL REFERENCES users (id),
+  second_pokemon_id INT NOT NULL REFERENCES pokemons_articles (id),
+  CONSTRAINT valid_user_coupled CHECK (first_user_id != second_user_id),
+  CONSTRAINT valid_pokemon_exchange CHECK (first_pokemon_id != second_pokemon_id),
+  PRIMARY KEY (first_pokemon_id, second_pokemon_id, first_user_id, second_user_id)
+=======
+>>>>>>> 5798e1ee90e39ffec6279061cf2f9bbe0124823a
   first_article_id INT NOT NULL REFERENCES articles (id),
   second_user_id INT NOT NULL REFERENCES users (id),
   second_article_id INT NOT NULL REFERENCES articles (id),
   CONSTRAINT valid_user_coupled CHECK (first_user_id != second_user_id),
   CONSTRAINT valid_article_exchange CHECK (first_article_id != second_article_id),
   PRIMARY KEY (first_user_id, first_article_id, second_user_id, second_article_id)
+<<<<<<< HEAD
+=======
+>>>>>>> XAdd cart
+>>>>>>> 5798e1ee90e39ffec6279061cf2f9bbe0124823a
 );
+
+-- Grant Roles
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO elasticuser;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO elasticuser;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO pokemonuser;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO pokemonuser;
