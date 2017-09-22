@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import {Pokemons} from "../../model/pokemons";
+//import { ItemsService } from '../../service/cart/cart.service';
 
 @Component({
   selector: 'app-items',
@@ -8,6 +10,8 @@ import { Router } from '@angular/router';
 })
 
 export class ItemsComponent implements OnInit {
+
+  @Input() pkm : Pokemons;
 
   constructor(private router: Router) { }
 

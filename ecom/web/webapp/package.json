@@ -21,15 +21,10 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
-<<<<<<< HEAD
-=======
     "angular-font-awesome": "^2.0.3",
     "font-awesome": "^4.7.0",
->>>>>>> 5798e1ee90e39ffec6279061cf2f9bbe0124823a
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
-    "angular-font-awesome": "^2.0.3",
     "core-js": "^2.4.1",
-    "font-awesome": "^4.7.0",
     "jquery": "^1.7",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"

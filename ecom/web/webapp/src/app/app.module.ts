@@ -12,6 +12,7 @@ import { AjoutComponent } from './component/ajout/ajout.component';
 import { EchangeComponent } from './component/echange/echange.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartService } from './service/cart/cart.service';
+import { HttpModule }    from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CartService } from './service/cart/cart.service';
     ProfilsComponent,
     AjoutComponent,
     EchangeComponent,
-    CartComponent
+    CartComponent,
+    HttpModule
   ],
   imports: [
     BrowserModule,
