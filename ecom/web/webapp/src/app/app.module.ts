@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule }    from '@angular/http';
+
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './component/items/items.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +14,8 @@ import { AjoutComponent } from './component/ajout/ajout.component';
 import { EchangeComponent } from './component/echange/echange.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartService } from './service/cart/cart.service';
-import { HttpModule }    from '@angular/http';
+import { ItemsService } from "./service/items/items.service";
+
 
 @NgModule({
   declarations: [
@@ -24,16 +27,17 @@ import { HttpModule }    from '@angular/http';
     ProfilsComponent,
     AjoutComponent,
     EchangeComponent,
-    CartComponent,
-    HttpModule
+    CartComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     NgbModule.forRoot()
   ],
   providers: [
-    CartService
+    CartService,
+    ItemsService
   ],
   bootstrap: [AppComponent]
 })
